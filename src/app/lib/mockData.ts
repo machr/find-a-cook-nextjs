@@ -1,12 +1,12 @@
 export interface Cook {
-         cookId: number;
+         cookId: string;
          cookName: string;
          description: string;
          location: string;
          imageUrl: string
          slug: string;
 }
-export const cooks = [
+export const cooks: Cook[] = [
     {
         "cookId": "1",
         "cookName": "Savor Bistro",
