@@ -1,5 +1,5 @@
 export interface Cook {
-         cookId: 1;
+         cookId: number;
          cookName: string;
          description: string;
          location: string;
@@ -8,7 +8,7 @@ export interface Cook {
 }
 export const cooks = [
     {
-        "cookId": 1,
+        "cookId": "1",
         "cookName": "Savor Bistro",
         "description": "A cozy spot offering fusion cuisine with fresh, locally sourced ingredients. Perfect for casual dining and special occasions.",
         "location": "Melbourne, Australia",
@@ -16,7 +16,7 @@ export const cooks = [
         "slug": "savor-bistro"
     },
     {
-        "cookId": 2,
+        "cookId": "2",
         "cookName": "Spice Haven",
         "description": "Experience bold and authentic Indian flavors with a modern twist. From rich curries to sizzling tandoori delights, every bite is a journey.",
         "location": "Sydney, Australia",
@@ -24,7 +24,7 @@ export const cooks = [
         "slug": "spice-haven"
     },
     {
-        "cookId": 3,
+        "cookId": "3",
         "cookName": "La Dolce Vita",
         "description": "A charming Italian eatery serving handmade pasta, wood-fired pizzas, and fine wines in a warm and inviting atmosphere.",
         "location": "New York, USA",
@@ -32,7 +32,7 @@ export const cooks = [
         "slug": "la-dolce-vita"
     },
     {
-        "cookId": 4,
+        "cookId": "4",
         "cookName": "Sakura Bliss",
         "description": "A contemporary Japanese restaurant specializing in sushi, ramen, and traditional izakaya-style small plates with a creative flair.",
         "location": "Tokyo, Japan",
@@ -40,7 +40,7 @@ export const cooks = [
         "slug": "sakura-bliss"
     },
     {
-        "cookId": 5,
+        "cookId": "5",
         "cookName": "El Fuego Cantina",
         "description": "A vibrant Mexican restaurant offering street tacos, loaded nachos, and house-made margaritas with a spicy kick in every dish.",
         "location": "Los Angeles, USA",
@@ -48,7 +48,7 @@ export const cooks = [
         "slug": "el-fuego-cantina"
     },
     {
-        "cookId": 6,
+        "cookId": "6",
         "cookName": "Nordic Feast",
         "description": "A Scandinavian-inspired dining experience with smoked fish, hearty stews, and freshly baked rye bread in a rustic setting.",
         "location": "Stockholm, Sweden",
@@ -56,7 +56,7 @@ export const cooks = [
         "slug": "nordic-feast"
     },
     {
-        "cookId": 7,
+        "cookId": "7",
         "cookName": "The Green Fork",
         "description": "A plant-based restaurant featuring fresh, organic, and locally sourced ingredients crafted into delicious and nutritious meals.",
         "location": "San Francisco, USA",
@@ -64,7 +64,7 @@ export const cooks = [
         "slug": "the-green-fork"
     },
     {
-        "cookId": 12,
+        "cookId": "12",
         "cookName": "Rustic Smokehouse",
         "description": "A classic BBQ joint serving slow-smoked meats, homemade sauces, and hearty sides in a laid-back, rustic atmosphere.",
         "location": "Austin, USA",
@@ -72,7 +72,7 @@ export const cooks = [
         "slug": "rustic-smokehouse"
     },
     {
-        "cookId": 8,
+        "cookId": "8",
         "cookName": "Seaside Catch",
         "description": "A seafood lover’s paradise, offering fresh daily catches, oysters, and coastal-inspired dishes with stunning ocean views.",
         "location": "Miami, USA",
@@ -80,7 +80,7 @@ export const cooks = [
         "slug": "seaside-catch"
     },
     {
-        "cookId": 9,
+        "cookId": "9",
         "cookName": "Café Parisien",
         "description": "A charming French café serving artisan pastries, rich coffee, and classic bistro dishes in an elegant yet cozy setting.",
         "location": "Paris, France",
@@ -88,7 +88,7 @@ export const cooks = [
         "slug": "café-parisien"
     },
     {
-        "cookId": 10,
+        "cookId": "10",
         "cookName": "Hearth & Home",
         "description": "A farm-to-table restaurant celebrating seasonal ingredients with comforting, home-cooked flavors and a rustic dining experience.",
         "location": "Portland, USA",
@@ -96,7 +96,7 @@ export const cooks = [
         "slug": "hearth-&-home"
     },
     {
-        "cookId": 11,
+        "cookId": "11",
         "cookName": "The Tandoor House",
         "description": "A traditional Indian restaurant specializing in aromatic curries, fresh naan, and authentic tandoori dishes cooked to perfection.",
         "location": "London, UK",
