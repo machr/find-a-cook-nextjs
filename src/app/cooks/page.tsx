@@ -4,7 +4,7 @@ import { type Cook } from '@/lib/utils'
 import Link from 'next/link'
 import {
     Card
-} from "@/components/ui/card"
+} from "@/components/ui/Card"
 
 export default async function CooksPage() {
     const supabase = await createClient();
