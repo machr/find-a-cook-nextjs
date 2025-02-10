@@ -4,3 +4,11 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
+export interface Cook {
+  id: number;
+  name: string;
+  description: string;
+  location: string;
+  logo_url: string
+  slug: string;
+}
