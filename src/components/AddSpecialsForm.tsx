@@ -104,7 +104,7 @@ function AddSpecialsForm() {
                     <FormField control={form.control} name="priceRange" render={({ field }) => (
                         <FormItem>
                             <FormLabel>Price Range</FormLabel>
-                            <RadioGroup defaultValue="option-one">
+                            <RadioGroup defaultValue={field.value} onChange={field.onChange}>
                                 {PRICE_RANGE.map(option => (
                                     <div key={option} className="flex items-center space-x-2">
                                         <RadioGroupItem value={option} id={option} />
