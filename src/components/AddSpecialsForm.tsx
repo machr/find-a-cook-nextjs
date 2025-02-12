@@ -81,7 +81,7 @@ function AddSpecialsForm() {
                         name="specialsDay"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Venue Name</FormLabel>
+                                <FormLabel>Day of special</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger>

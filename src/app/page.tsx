@@ -8,7 +8,7 @@ export default function Home() {
 
       <AddSpecialsForm />
 
-      <Link href="/cooks" className="text-3xl font-bold bg-black text-white p-2 rounded">Find some food</Link>
+      <Link href="/venues" className="text-3xl font-bold bg-black text-white p-2 rounded">Find some food</Link>
     </>
   );
 }
