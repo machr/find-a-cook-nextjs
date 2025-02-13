@@ -8,7 +8,6 @@ import {
 export default async function CooksPage() {
     const supabase = await createClient();
     const { data: venues } = await supabase.from("venues").select();
-    console.log('data', data)
     return (
         <>
             <h1 className='text-3xl font-bold'>Local venues in Prahran</h1>
@@ -16,8 +15,8 @@ export default async function CooksPage() {
                 {venues!.map((venue: Venue) => (
                     <Link key={venue.id} href={`venues/${venue.id}`}>
                         <Card className="rounded shadow">
-                            <div>
-                                <img alt={`${venue} logo`} src={venue.logo_url} /></div>
+                            {/* <div>
+                                <img alt={`${venue} logo`} src={venue.logo_url} /></div> */}
                             <p>{venue.name}</p>
                         </Card>
                     </Link>

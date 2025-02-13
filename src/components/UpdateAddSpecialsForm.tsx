@@ -24,8 +24,6 @@ import {
 
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Venue } from "@/lib/utils"
-
 
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', ' Friday', 'Saturday', 'Sunday'] as const;
@@ -39,7 +37,7 @@ const formSchema = z.object({
     specialName: z.string().min(5, { message: "Name must be at least 5 characters.", })
 })
 
-function UpdateAddVenueForm({ venues }: { venues: Venue[] }) {
+function UpdateAddSpecialsForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -55,8 +53,6 @@ function UpdateAddVenueForm({ venues }: { venues: Venue[] }) {
         // ✅ This will be type-safe and validated.
         console.log(values)
     }
-    // console.log('venues', venues)
-    // Watch all fields
     const values = watch();
 
     return (
@@ -142,4 +138,4 @@ function UpdateAddVenueForm({ venues }: { venues: Venue[] }) {
     )
 }
 
-export { UpdateAddVenueForm };
+export { UpdateAddSpecialsForm };

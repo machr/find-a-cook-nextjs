@@ -16,8 +16,6 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
-const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', ' Friday', 'Saturday', 'Sunday'] as const;
-const PRICE_RANGE = ['cheap', 'average', 'exxy'] as const;
 const formSchema = z.object({
     venueName: z.string().min(2, {
         message: "Username must be at least 2 characters.",
@@ -34,7 +32,7 @@ interface Venue {
     slug: string
 }
 
-function AddSpecialsForm({ venues }: { venues: Venue[] }) {
+function AddUpdateVenueForm({ venues }: { venues: Venue[] }) {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -47,8 +45,6 @@ function AddSpecialsForm({ venues }: { venues: Venue[] }) {
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values)
     }
-
-    // console.log('venues update venue', venues)
 
     const values = watch();
     return (
@@ -97,4 +93,4 @@ function AddSpecialsForm({ venues }: { venues: Venue[] }) {
     )
 }
 
-export { AddSpecialsForm };
+export { AddUpdateVenueForm };
