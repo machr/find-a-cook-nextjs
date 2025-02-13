@@ -7,8 +7,8 @@ export function cn(...inputs: ClassValue[]) {
 export interface Venue {
   id: number;
   name: string;
-  description: string;
-  location: string;
-  logo_url: string
+  description?: string;
+  location?: string;
+  logo_url?: string
   slug: string;
 }

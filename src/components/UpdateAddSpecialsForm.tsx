@@ -24,6 +24,7 @@ import {
 
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Venue } from "@/lib/utils"
 
 
 
@@ -34,16 +35,18 @@ const formSchema = z.object({
         message: "Username must be at least 2 characters.",
     }),
     specialsDay: z.enum(DAYS),
-    priceRange: z.enum(PRICE_RANGE)
+    priceRange: z.enum(PRICE_RANGE),
+    specialName: z.string().min(5, { message: "Name must be at least 5 characters.", })
 })
 
-function UpdateAddVenueForm() {
+function UpdateAddVenueForm({ venues }: { venues: Venue[] }) {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             venueName: "",
             specialsDay: "Monday",
-            priceRange: "average"
+            priceRange: "average",
+            specialName: ""
         },
     })
     const { watch } = form;
@@ -52,17 +55,33 @@ function UpdateAddVenueForm() {
         // ✅ This will be type-safe and validated.
         console.log(values)
     }
-
+    // console.log('venues', venues)
     // Watch all fields
     const values = watch();
 
     return (
-        <>
+        <div className="flex flex-col flex-1">
             <Form {...form} >
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mb-5 bg-gray-200 border border-gray-400">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mb-5 p-5 border border-gray-400 flex flex-col">
                     <FormField
                         control={form.control}
                         name="venueName"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Venue Name</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="Add venue name" {...field} />
+                                </FormControl>
+                                <FormDescription>
+                                    This is the public venue name
+                                </FormDescription>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="specialName"
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Venue Name</FormLabel>
@@ -119,7 +138,7 @@ function UpdateAddVenueForm() {
             </Form>
 
             <pre>{JSON.stringify(values, null, 2)}</pre>
-        </>
+        </div>
     )
 }
 

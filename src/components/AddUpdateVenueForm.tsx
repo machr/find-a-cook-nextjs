@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
+import { Combobox } from "./ui/combobox"
 import {
     Form,
     FormControl,
@@ -21,8 +22,7 @@ const formSchema = z.object({
     venueName: z.string().min(2, {
         message: "Username must be at least 2 characters.",
     }),
-    specialsDay: z.enum(DAYS),
-    priceRange: z.enum(PRICE_RANGE)
+    selectedVenue: z.string()
 })
 
 interface Venue {
@@ -35,28 +35,42 @@ interface Venue {
 }
 
 function AddSpecialsForm({ venues }: { venues: Venue[] }) {
-    console.log('from special', venues[0])
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             venueName: "",
-            specialsDay: "Monday",
-            priceRange: "average"
+            selectedVenue: "",
         },
     })
     const { watch } = form;
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        // ✅ This will be type-safe and validated.
         console.log(values)
     }
 
-    // Watch all fields
+    // console.log('venues update venue', venues)
+
     const values = watch();
     return (
-        <>
+        <div className="flex flex-col flex-1">
             <Form {...form} >
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mb-5 bg-gray-200 border border-gray-400">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mb-5 p-5 border border-gray-400 flex flex-col">
+                    <FormField
+                        control={form.control}
+                        name="selectedVenue"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Select venue</FormLabel>
+                                <FormControl>
+                                    <Combobox
+                                        venues={venues}
+                                        value={field.value}
+                                        onChange={field.onChange}
+                                    />
+                                </FormControl>
+                            </FormItem>
+                        )}
+                    />
                     <FormField
                         control={form.control}
                         name="venueName"
@@ -64,9 +78,7 @@ function AddSpecialsForm({ venues }: { venues: Venue[] }) {
                             <FormItem>
                                 <FormLabel>Venue Name</FormLabel>
                                 <FormControl>
-                                    <Select>
-
-                                    </Select>
+                                    <Input {...field} />
                                 </FormControl>
                                 <FormDescription>
                                     This is the public venue name
@@ -75,12 +87,13 @@ function AddSpecialsForm({ venues }: { venues: Venue[] }) {
                             </FormItem>
                         )}
                     />
+
                     <Button className="mb-5" type="submit">Submit</Button>
                 </form>
             </Form>
 
             <pre>{JSON.stringify(values, null, 2)}</pre>
-        </>
+        </div>
     )
 }
 

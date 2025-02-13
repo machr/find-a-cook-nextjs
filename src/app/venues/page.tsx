@@ -8,6 +8,7 @@ import {
 export default async function CooksPage() {
     const supabase = await createClient();
     const { data: venues } = await supabase.from("venues").select();
+    console.log('data', data)
     return (
         <>
             <h1 className='text-3xl font-bold'>Local venues in Prahran</h1>
